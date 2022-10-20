@@ -1,6 +1,7 @@
 import os
 import glob
 from telegram_part import *
+from decouple import config
 
 dict = {}
 flag = False
@@ -8,7 +9,7 @@ flag = False
 # if you need other specific file types
 # use *.[type], for example *.py
 while(True):
-    file_location = ""
+    file_location = config('LOCATION')
     files_in_dir = glob.glob(file_location + "*.png")
     recent_file = max(files_in_dir, key=os.path.getctime)
     # find in map
